@@ -12,7 +12,7 @@
 - Build packages and create workspace folders ```colcon build```
 
 #### Creating packages
-- These commands should be used on the project root folder
+- These command should be used on src folder
 - For python package
 ``ros2 pkg create my_py_pkg --build-type ament_python --dependencies rclpy``
   - ```--build-type ament_python``` This specifies the build type for the package, indicating that it contains Python code and should be built using the ament build system with Python-specific configurations.
