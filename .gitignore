@@ -1,0 +1,9 @@
+# Ignore build and devel directories
+build/
+install/
+log/
+.vscode/
+.idea/
+.DS_Store
+.vscode/
+
