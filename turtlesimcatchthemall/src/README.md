@@ -1,32 +1,33 @@
-# Turlesim Catch Them All
+# Turtlesim Catch Them All
 
-This is the last exercise propoused on the course "ROS2 for begginers" of Edouard Renard on the Udemy platform.
-The goal to this exercise is to put in practise the knowlledge gained in the course lessons by creating a simoulation on the turtlesim. That simulation consists of spawning turtles randomly around the map and making the master turtle go to their position and catch them.
+This project represents the culmination of the "ROS2 for Beginners" course led by Edouard Renard on the Udemy platform. It aims to practically apply the knowledge acquired throughout the course by creating a simulation within the turtlesim environment. The simulation involves spawning turtles randomly across the map and orchestrating the movement of a master turtle to capture them.
 
-### The goal
+## Objective
 
-Altough that was the main goal of the exercise, mine was a bit further away.
-My main goal was to abstract ROS2 funcionalites lectured in the course (clients, services, publishers, subscribers and timmers) to classes I could use a in maore simpler, intuitive and safer way. While doing all the dirty work automatically behind the scenes.
-Those abstractions can be found on the utilities folder configured as libraries to be used around the project.
+While the primary exercise goal was to implement turtle capture functionalities, this project extended its scope significantly. It focused on encapsulating ROS2 functionalities discussed in the course (clients, services, publishers, subscribers, and timers) into intuitive and secure classes. These abstractions are available within the 'utilities' folder, designed as reusable libraries throughout the project.
 
-I also focused on the architecture and project design. Was able to use the CMakelists in a much simpler and clean way. So I dont need to have huge blocks of repeated code. This organiztion and management is more flexible and can even be used with CMake based IDE's such as clion.
+Moreover, considerable attention was dedicated to refining the project's architecture and design. This effort streamlined the CMakeLists, eliminating redundant code blocks, fostering a more flexible structure. This improved organization is compatible with CMake-based IDEs such as CLion, enhancing manageability.
 
-### The project
+## Project Structure
 
-This project consists of two main nodes:
+This ROS2 project comprises two primary nodes:
 
-- TurtleControllerNode - This node controlls  the master turtle and is formed of three main pieces:
-    
-  - CatchTurtleClient - Sends the request to remove the spawned turtles from the map  as soon as the master tuertle reaches their positions, and it's located on the TurtleInteractions module.
-      
-  - TurtleInteractions - Manages all the interactions and comunications that TurtleController needs to have (client, publishers and subscribers).
-      
-  - TurtleMoveCenter - Manages all the movement and coordinats related tasks such as calculating distances, the next move and the closest target.
+### TurtleControllerNode
 
-- TurtleSpawnerNode - This node manages the spawned turtles and consists of two clients and a service:
+This node governs the movement of the master turtle and consists of three key components:
 
-  - TurtleSpawnClient - Sends a request to turtlesim to spawn a turtle on the required coordinates.
+- **CatchTurtleClient:** Responsible for dispatching requests to eliminate spawned turtles from the map upon the master turtle's arrival. This component is located within the TurtleInteractions module.
 
-  - KillClient - Sends a request to turtlesim to kill (remove) catched turtles.
- 
-  - CatchTurtleService - Recieves the CatchTurtleClient request and activates the KillClient
+- **TurtleInteractions:** Manages all essential interactions and communications required by the TurtleController, including clients, publishers, and subscribers.
+
+- **TurtleMoveCenter:** Handles movement-related tasks, such as distance calculation, determining the next move, and identifying the closest target coordinates.
+
+### TurtleSpawnerNode
+
+This node oversees the spawned turtles and integrates two clients and a service:
+
+- **TurtleSpawnClient:** Initiates a request to turtlesim for spawning a turtle at specified coordinates.
+
+- **KillClient:** Triggers a request to turtlesim to remove captured turtles.
+
+- **CatchTurtleService:** Receives requests from the CatchTurtleClient, subsequently activating the KillClient to remove the captured turtles.
