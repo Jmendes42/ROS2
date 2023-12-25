@@ -31,3 +31,9 @@ This node oversees the spawned turtles and integrates two clients and a service:
 - **KillClient:** Triggers a request to turtlesim to remove captured turtles.
 
 - **CatchTurtleService:** Receives requests from the CatchTurtleClient, subsequently activating the KillClient to remove the captured turtles.
+
+### Simulation preview
+
+![ezgif com-video-to-gif-converter](https://github.com/Jmendes42/ROS2/assets/74921179/05c9c152-5840-429b-b457-c30b1a544a3b)
+
+
