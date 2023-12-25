@@ -45,6 +45,6 @@ foreach (EXECUTABLE ${EXECUTABLES})
   )
 endforeach ()
 
-add_subdirectory(src)
+add_subdirectory(nodes)
 
 ament_package()
