@@ -15,11 +15,18 @@ I also focused on the architecture and project design. Was able to use the CMake
 
 This project consists of two main nodes:
 
-- TurtleControllerNode:
-  - This node controlls  the master turtle and is formed of three main pieces:
+- TurtleControllerNode - This node controlls  the master turtle and is formed of three main pieces:
     
-    - CatchTurtleClient - Sends the request to remove the spawned turtles from the map  as soon as the master tuertle reaches their positions, and it's located on the TurtleInteractions module.
+  - CatchTurtleClient - Sends the request to remove the spawned turtles from the map  as soon as the master tuertle reaches their positions, and it's located on the TurtleInteractions module.
       
-    - TurtleInteractions - Manages all the interactions and comunications that TurtleController needs to have (client, publishers and subscribers).
+  - TurtleInteractions - Manages all the interactions and comunications that TurtleController needs to have (client, publishers and subscribers).
       
-    - TurtleMoveCenter - Manages all the movement and coordinats related tasks such as calculating distances, the next move and the closest target.
+  - TurtleMoveCenter - Manages all the movement and coordinats related tasks such as calculating distances, the next move and the closest target.
+
+- TurtleSpawnerNode - This node manages the spawned turtles and consists of two clients and a service:
+
+  - TurtleSpawnClient - Sends a request to turtlesim to spawn a turtle on the required coordinates.
+
+  - KillClient - Sends a request to turtlesim to kill (remove) catched turtles.
+ 
+  - CatchTurtleService - Recieves the CatchTurtleClient request and activates the KillClient
