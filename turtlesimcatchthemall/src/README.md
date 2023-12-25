@@ -11,3 +11,15 @@ Those abstractions can be found on the utilities folder configured as libraries 
 
 I also focused on the architecture and project design. Was able to use the CMakelists in a much simpler and clean way. So I dont need to have huge blocks of repeated code. This organiztion and management is more flexible and can even be used with CMake based IDE's such as clion.
 
+### The project
+
+This project consists of two main nodes:
+
+- TurtleControllerNode:
+  - This node controlls  the master turtle and is formed of three main pieces:
+    
+    - CatchTurtleClient - Sends the request to remove the spawned turtles from the map  as soon as the master tuertle reaches their positions, and it's located on the TurtleInteractions module.
+      
+    - TurtleInteractions - Manages all the interactions and comunications that TurtleController needs to have (client, publishers and subscribers).
+      
+    - TurtleMoveCenter - Manages all the movement and coordinats related tasks such as calculating distances, the next move and the closest target.
